@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+input{
+    display: none;
+}
+.container{
+    width: 100%;
+    text-align: center;
+    
+}
+.back{
+   margin-left: auto;
+font-size: 20px;
+color: white;
+width: 80px;
+border-radius: 10px;
+background: -webkit-linear-gradient(0deg,transparent 50%,grey);
+background-size: auto;
+background-size: 400px 80px;
+transition: 0.8s;
+display: inline-block;
+padding: 0;
+}
+.back:hover{
+    transition: 0.7s;
+    background-color: lightgrey;
+    color:white;
+    transition-duration: 1s;  
+    background-position: 200px 0;
+}
+h1{
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+h1::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.top-content{
+    background-color: rgb(243,243,243);
+    width: 90%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+}
+h3{
+    height: 100%;
+    background-color: rgb(125, 123, 123);
+    line-height: 60px;
+    padding: 0 50px;
+    color: white;
+}
+label{
+    display: inline-block;
+    height: 100%;
+    font-size: 18px;
+    margin: 0 20px;
+    line-height: 60px;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.5s;
+}
+label:hover{ 
+    color: coral;
+    
+}
+.photo-gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+}
+.pic{
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgray;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.pic img{
+    width: 100%;
+    height: 100%;    
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.pic::before{
+    content: "PHOTO GALLERY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    z-index: 1;
+}
+.pic:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+.pic:hover:after{
+    height: 100%;
+}
+.pic:hover::before{
+    margin-top: 0;
+    opacity: 1;
+}
+#check1:checked ~ .container .photo-gallery .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: 0.5s;
+}
+
+/*------ first link -------*/
+
+#check2:checked ~ .container .photo-gallery .Land{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check2:checked ~ .container .photo-gallery .Places,#check2:checked ~ .container .photo-gallery .Still{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+/*------ second link -------*/
+
+
+#check3:checked ~ .container .photo-gallery .Still{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check3:checked ~ .container .photo-gallery .Land,#check3:checked ~ .container .photo-gallery .Places{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+/*------ third link -------*/
+
+
+#check4:checked ~ .container .photo-gallery .Still{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check4:checked ~ .container .photo-gallery .Land,#check4:checked ~ .container .photo-gallery .Still{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
